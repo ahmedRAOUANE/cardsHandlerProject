@@ -47,8 +47,6 @@ function App() {
 
   const popupHandler = (popup) => {
     setShowPopup(popup);
-    // console.log(showPopup);
-    // console.log(popup);
   };
 
   return (
@@ -59,7 +57,7 @@ function App() {
         showPopupHandler={popupHandler}
       />
       <CardList showCards={showCards} names={nameList} />
-      <Modal showPopup={showPopup} />
+      <Modal showPopup={showPopup} hidePopup={() => setShowPopup(false)} />
     </div>
   );
 }

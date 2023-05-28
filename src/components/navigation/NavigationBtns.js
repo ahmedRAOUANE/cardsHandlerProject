@@ -6,14 +6,14 @@ const NavigationBtns = ({ showCardHandler, showPopupHandler }) => {
 
   const [showCard, setShowCard] = useState(false);
 
+  const handleShowPopup = () => {
+    setShowPopup(!showPopup);
+    showPopupHandler(!showPopup);
+  };
+
   const handleShowCard = () => {
     setShowCard(!showCard);
     showCardHandler(showCard);
-  };
-
-  const handleShowPopup = () => {
-    setShowPopup(true);
-    showPopupHandler(showPopup);
   };
 
   return (

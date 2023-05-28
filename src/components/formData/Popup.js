@@ -1,24 +1,18 @@
-import { Fragment, useState } from "react";
+import { Fragment } from "react";
 import styles from "./Popup.module.css";
 import ReactDOM from "react-dom";
 
-const Backdrop = () => {
-  return <div className={styles.backdrop} id="backdrop"></div>;
+const Backdrop = ({hide}) => {
+  return <div className={styles.backdrop} id="backdrop" onClick={() => hide()}></div>;
 };
 
-const Modal = (show) => {
-  const [showen, setShowen] = useState(show);
+const Modal = ({showPopup, hidePopup}) => {
 
-  const cancel = (show) => {
-    console.log(show);
-    setShowen(!showen);
-  };
-
-  return !showen ? (
+  return showPopup && (
     <Fragment>
       {ReactDOM.createPortal(
         <Fragment>
-          <Backdrop />
+          <Backdrop hide={hidePopup} />
           <div
             className={`container card p-3 shadow my-5 ${styles.form}`}
             id="overlay"
@@ -67,7 +61,7 @@ const Modal = (show) => {
                 <button type="submit" className="btn btn-success">
                   save
                 </button>
-                <button className="btn btn-secondary" onClick={() => cancel(show)}>
+                <button className="btn btn-secondary" onClick={() => hidePopup()}>
                   cancel
                 </button>
               </div>
@@ -77,7 +71,7 @@ const Modal = (show) => {
         document.getElementById("popup")
       )}
     </Fragment>
-  ) : null;
+  )
 };
 
 export default Modal;
