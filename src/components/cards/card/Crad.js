@@ -9,12 +9,14 @@ import Modal from "../../formData/Popup";
 // css styles
 import style from "./Card.module.css";
 
-const Card = ({member}) => {
+const Card = ({ member, handleNameList }) => {
 
   const [showPopup, setShowPopup] = useState(false);
 
+  const  {id, name, age, address, number, email} = member;
+
   return (
-    <div className="col col-md-4" id={member.id}>
+    <div className="col col-md-4" id={id}>
       <div className="card m-2 p-3 shadow">
         <div className={`${style.controlBtns} d-flex justify-content-end`}>
           <button
@@ -23,20 +25,25 @@ const Card = ({member}) => {
           >
             <HiPencilAlt />
           </button>
-          <button className={`btn btn-outline-danger me-2 rounded-circle`}>
+          <button
+            className={`btn btn-outline-danger me-2 rounded-circle`}
+            onClick={() => handleNameList(id)}
+          >
             <HiX />
           </button>
         </div>
-        <h5 className="card-title">{member.name}</h5>
-        <ul className="card-body my-3 p-2 list-unstyled">
-          <li className="card-text">age: {member.age}</li>
-          <li className="card-text">address: {member.address}</li>
-          <li className="card-text">number: {member.number}</li>
-          <li className="card-text">email: {member.email}</li>
-        </ul>
-        <a href="/" className="btn btn-primary">
-          go some where
-        </a>
+        <div>
+          <h5 className="card-title">{name}</h5>
+          <ul className="card-body my-3 p-2 list-unstyled">
+            <li className="card-text">age: {age}</li>
+            <li className="card-text">address: {address}</li>
+            <li className="card-text">number: {number}</li>
+            <li className="card-text">email: {email}</li>
+          </ul>
+          <a href="/" className="btn btn-primary">
+            go some where
+          </a>
+        </div>
       </div>
       <Modal showPopup={showPopup} hidePopup={() => setShowPopup(!showPopup)} />
     </div>
