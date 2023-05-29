@@ -4,7 +4,6 @@ import { useState } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 
 // components
-import Modal from "../formData/Popup";
 import Header from "../header/Header";
 import CardList from "../cards/cardList/CardList";
 import NavigationBtns from "../navigation/NavigationBtns";
@@ -37,27 +36,17 @@ function App() {
     },
   ]);
 
-  const [showPopup, setShowPopup] = useState(false);
-
   const [showCards, setShowCards] = useState(true);
 
   const showCardHandler = (card) => {
     setShowCards(card);
   };
 
-  const popupHandler = (popup) => {
-    setShowPopup(popup);
-  };
-
   return (
     <div className="App">
       <Header />
-      <NavigationBtns
-        showCardHandler={showCardHandler}
-        showPopupHandler={popupHandler}
-      />
+      <NavigationBtns showCardHandler={showCardHandler} />
       <CardList showCards={showCards} names={nameList} />
-      <Modal showPopup={showPopup} hidePopup={() => setShowPopup(false)} />
     </div>
   );
 }

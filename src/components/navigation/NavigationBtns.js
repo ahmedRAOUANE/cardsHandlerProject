@@ -1,15 +1,13 @@
 import { useState } from "react";
 
-const NavigationBtns = ({ showCardHandler, showPopupHandler }) => {
+//component
+import Modal from "../formData/Popup";
 
-  const [showPopup, setShowPopup] = useState(false);
+const NavigationBtns = ({ showCardHandler }) => {
 
   const [showCard, setShowCard] = useState(false);
 
-  const handleShowPopup = () => {
-    setShowPopup(!showPopup);
-    showPopupHandler(!showPopup);
-  };
+  const [showPopup, setShowPopup] = useState(false);
 
   const handleShowCard = () => {
     setShowCard(!showCard);
@@ -18,12 +16,16 @@ const NavigationBtns = ({ showCardHandler, showPopupHandler }) => {
 
   return (
     <div className="container d-flex justify-content-between my-4">
-      <button className="btn btn-primary" onClick={handleShowPopup}>
+      <button
+        className="btn btn-primary"
+        onClick={() => setShowPopup(!showPopup)}
+      >
         create
       </button>
       <button className="btn btn-secondary" onClick={handleShowCard}>
         {showCard ? "show" : "hide"}
       </button>
+      <Modal showPopup={showPopup} hidePopup={() => setShowPopup(!showPopup)} />
     </div>
   );
 };
