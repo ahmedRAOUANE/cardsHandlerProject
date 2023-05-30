@@ -18,6 +18,9 @@ const NavigationBtns = ({ showCardHandler }) => {
     <div className="container d-flex justify-content-between my-4">
       <button
         className="btn btn-primary"
+        type="button"
+        datatoggle="modal"
+        datatarget="#overlay"
         onClick={() => setShowPopup(!showPopup)}
       >
         create

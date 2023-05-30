@@ -6,6 +6,37 @@
     transform: translate(-50%, -50%);
 }
 
+.fadein {
+    transition: all 1s;
+    animation: fadein .1s ease-in;
+}  
+
+.fadeout {
+    transition: all 1s;
+    animation: fadeout .1s ease-out;
+}
+
+@keyframes fadein {
+    0%{
+        transform: scale(0.9) translate(-50%, -50%);
+        opacity: .8;
+    }
+    100%{
+        transform: scale(1) translate(-50%, -50%);
+        opacity: 1;
+    }
+}
+@keyframes fadeout {
+    0%{
+        transform: scale(1) translate(-50%, -50%);
+        opacity: 1;
+    }
+    100%{
+        transform: scale(0) translate(-50%, -50%);
+        opacity: .1;
+    }
+}
+
 .backdrop {
     position: fixed;
     bottom: 0;
