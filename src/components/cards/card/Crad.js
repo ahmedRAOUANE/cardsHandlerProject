@@ -5,6 +5,7 @@ import { HiPencilAlt, HiX } from "react-icons/hi";
 
 // components
 import Modal from "../../formData/Popup";
+import Button from "../../layout/Button";
 
 // css styles
 import style from "./Card.module.css";
@@ -19,18 +20,18 @@ const Card = ({ member, handleNameList }) => {
     <div className="col col-md-4" id={id}>
       <div className="card m-2 p-3 shadow">
         <div className={`${style.controlBtns} d-flex justify-content-end`}>
-          <button
+          <Button
             className={`btn btn-outline-success me-2 rounded-circle`}
             onClick={() => setShowPopup(!showPopup)}
           >
             <HiPencilAlt />
-          </button>
-          <button
+          </Button>
+          <Button
             className={`btn btn-outline-danger me-2 rounded-circle`}
             onClick={() => handleNameList(id)}
           >
             <HiX />
-          </button>
+          </Button>
         </div>
         <div>
           <h5 className="card-title">{name}</h5>

@@ -2,6 +2,7 @@ import { useState } from "react";
 
 //component
 import Modal from "../formData/Popup";
+import Button from "../layout/Button";
 
 const NavigationBtns = ({ showCardHandler }) => {
 
@@ -16,18 +17,15 @@ const NavigationBtns = ({ showCardHandler }) => {
 
   return (
     <div className="container d-flex justify-content-between my-4">
-      <button
+      <Button
         className="btn btn-primary"
-        type="button"
-        datatoggle="modal"
-        datatarget="#overlay"
         onClick={() => setShowPopup(!showPopup)}
       >
         create
-      </button>
-      <button className="btn btn-secondary" onClick={handleShowCard}>
+      </Button>
+      <Button className="btn btn-secondary" onClick={handleShowCard}>
         {showCard ? "show" : "hide"}
-      </button>
+      </Button>
       <Modal showPopup={showPopup} hidePopup={() => setShowPopup(!showPopup)} />
     </div>
   );
